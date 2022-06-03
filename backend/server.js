@@ -13,18 +13,14 @@ app.use(express.urlencoded({ extended: false }));
 app.post('/api/generateName/', (req, res) => {
     const seedFirstName = req.body.firstName
     const seedLastName = req.body.lastName;
-    console.log(`First Name: ${seedFirstName} Last Name: ${seedLastName}`);
-    let seed = 0;
-    let stringPosition = 1;
-    
-    for (const char of seedString) {
-        seed = seed + (char.charCodeAt(0) * stringPosition)
-        stringPosition++;
-    }
-    res.json({ fantasyName: nameGenerator.constructName(seed) });
+    const fName = nameGenerator.constructName(nameGenerator.convertStringToSeed(seedFirstName));
+    const lName = nameGenerator.constructName(nameGenerator.convertStringToSeed(seedLastName));
+    res.json({ fName, lName });
 })
 app.get('/api/generateName', (req, res) => {
-    res.json({ fantasyName: nameGenerator.constructName(Math.random()) });
+    const fName = nameGenerator.constructName(Math.random());
+    const lName = nameGenerator.constructName(Math.random());
+    res.json({ fName, lName });
 })
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}.`);
