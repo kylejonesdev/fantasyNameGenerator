@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Name Generator Documentation</title>
+</head>
+<body>
+    <h1>Fantasy Name Generator Documentation</h1>
+    <h2>To generate a random fantasy name:</h2>
+    <h3>GET request to localhost:5000/api/generateName</h3>
+    <h4>Expects</h4>
+    <p>Nothing</p>
+    <h4>Returns</h4>
+    <p>a random fantasy name in the JSON object format: { fName: "String", lName: "String" }</p>
+    <h2>To generate a fantasy name based on your name</h2>
+    <h3>POST to localhost:5000/api/generateName</h3>
+    <h4>Expects</h4>
+    <p>a request body containing: firstName = "String", lastName = "String"</p>
+    <h4>Returns</h4>
+    <p>a fantasy name generated from the provided parameters in the JSON object format: { fName: "String", lName: "String" }</p>
+</body>
+</html>

@@ -22,6 +22,9 @@ app.get('/api/generateName', (req, res) => {
     const lName = nameGenerator.constructName(Math.random());
     res.json({ fName, lName });
 })
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+})
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}.`);
 })
