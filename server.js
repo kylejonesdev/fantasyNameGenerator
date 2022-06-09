@@ -6,21 +6,23 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 app.use(cors());
-
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 
 app.post('/api/generateName/', (req, res) => {
     const seedFirstName = req.body.firstName
     const seedLastName = req.body.lastName;
     const fName = nameGenerator.constructName(nameGenerator.convertStringToSeed(seedFirstName));
     const lName = nameGenerator.constructName(nameGenerator.convertStringToSeed(seedLastName));
-    res.json({ fName, lName });
+    res.render('results.ejs', { fName, lName });
 })
 app.get('/api/generateName', (req, res) => {
     const fName = nameGenerator.constructName(Math.random());
     const lName = nameGenerator.constructName(Math.random());
-    res.json({ fName, lName });
+    res.render('results.ejs', { fName, lName });
 })
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');

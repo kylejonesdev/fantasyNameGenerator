@@ -13,12 +13,26 @@
     <h4>Expects</h4>
     <p>Nothing</p>
     <h4>Returns</h4>
-    <p>a random fantasy name in the JSON object format: { fName: "String", lName: "String" }</p>
+    <p>a random fantasy name in the JSON object format: <code>{ fName: "String", lName: "String" }</code></p>
+    <h4>Try It Out</h4>
+    <form action="http://localhost:5000/api/generateName" method="get">
+        <button type="submit">Generate Random</button>
+    </form>
+
     <h2>To generate a fantasy name based on your name:</h2>
     <h3>POST to /api/generateName</h3>
     <h4>Expects</h4>
-    <p>a request body containing: firstName = "String", lastName = "String"</p>
+    <p>a request body containing: <code>firstName = "String", lastName = "String"</code></p>
     <h4>Returns</h4>
-    <p>a fantasy name generated from the provided parameters in the JSON object format: { fName: "String", lName: "String" }</p>
+    <p>a fantasy name generated from the provided parameters in the JSON object format: <code>{ fName: "String", lName: "String" }</code></p>
+    <h4>Try It Out</h4>
+    <form action="http://localhost:5000/api/generateName" method="post">
+    <!-- <form action="https://protected-depths-98206.herokuapp.com/api/generateName" method="post"> -->
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName" />
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName">
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
